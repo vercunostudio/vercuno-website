@@ -24,6 +24,7 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://vercuno-website.vercel.app"),
   title: {
     default: "VERCUNO — Digital, Built Better.",
     template: "%s — VERCUNO",

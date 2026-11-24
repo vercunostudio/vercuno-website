@@ -334,3 +334,30 @@ Concept: The Statement + Interactive Vercy Colophon
 
 About V1.1 is locked for subsequent development.
 Mascot usage rights remain a pre-launch checkpoint.
+
+## Process V1 — The Operator's Index
+
+Selected: 2026-11-24
+Design Direction: APPROVED
+Implementation: PENDING
+
+The project owner selected Concept C.
+
+Key decisions:
+- Monumental outlined numerals 01–05.
+- Active numerals fill Cantaloupe Orange.
+- Asymmetrical desktop composition.
+- Single-column mobile layout.
+- Scroll-responsive stage transitions.
+- One closing Let's Talk CTA.
+- No primary navbar changes.
+- Preserve all previously approved sections.
+
+## Process V1 — Final Approval
+
+Approved: 2026-11-24
+Concept: The Operator's Index
+Status: LOCKED
+
+Five large outlined numerals with scroll-based
+active states. Stage 05 detection bug resolved.

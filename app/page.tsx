@@ -1,3 +1,4 @@
+import { About } from "@/components/about";
 import { Hero } from "@/components/hero";
 import { Preloader } from "@/components/preloader";
 import { SelectedWork } from "@/components/selected-work";
@@ -13,6 +14,7 @@ export default function Home() {
         <Hero />
         <SelectedWork />
         <Services />
+        <About />
       </main>
     </>
   );

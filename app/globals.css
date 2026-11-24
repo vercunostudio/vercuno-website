@@ -2372,3 +2372,480 @@ a.work__row {
     transform: none !important;
   }
 }
+
+/* -------------------------------------------------------------------------- */
+/* About (Section 04 — Concept A+C "The Statement + Colophon")                 */
+/* -------------------------------------------------------------------------- */
+
+.about {
+  position: relative;
+  padding-block: clamp(5.5rem, 13vh, 9rem) clamp(3.5rem, 8vh, 6rem);
+  padding-inline: var(--gutter);
+  overflow: clip;
+  isolation: isolate;
+  background-color: var(--color-midnight);
+  /* Scoped landing offset only: the reserved #about anchor should not tuck
+     the eyebrow under the fixed header. Other sections keep their own. */
+  scroll-margin-top: 1.5rem;
+}
+
+/* Motion initial states apply only when JS is live and motion is allowed. */
+.motion-ready [data-amotion="eyebrow"],
+.motion-ready [data-amotion="line"],
+.motion-ready [data-amotion="prose"],
+.motion-ready [data-amotion="belief"],
+.motion-ready [data-amotion="colophon"] {
+  opacity: 0;
+}
+
+.motion-ready [data-amotion="rule"],
+.motion-ready [data-amotion="colophon-rule"] {
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.about__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+}
+
+.about__rule {
+  display: block;
+  height: 1px;
+  margin-top: clamp(1.5rem, 3.5vh, 2.5rem);
+  background-color: rgb(245 248 255 / 16%);
+}
+
+.about__body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(2.5rem, 6vh, 4rem);
+  margin-top: clamp(2.75rem, 7vh, 5.5rem);
+}
+
+/* Statement ------------------------------------------------------------------ */
+
+.about__statement {
+  margin: 0;
+  color: var(--color-ivory);
+  font-family: var(--font-manrope), "Helvetica Neue", Arial, sans-serif;
+  font-size: clamp(2.5rem, 10.6vw, 3.25rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.96;
+  text-wrap: balance;
+}
+
+/* Each line is a clipped window; the inner span travels inside it. */
+.about__line {
+  display: block;
+  overflow: hidden;
+  /* Descenders ("place", "g") must never be clipped by the mask. */
+  padding-bottom: 0.12em;
+  margin-bottom: -0.12em;
+}
+
+.about__line-inner {
+  display: block;
+}
+
+.about__accent {
+  padding-right: 0.04em;
+  color: var(--color-electric);
+  font-family: var(--font-instrument), "Times New Roman", serif;
+  font-size: 1.06em;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+
+/* Prose ---------------------------------------------------------------------- */
+
+.about__prose {
+  margin-top: clamp(1.75rem, 4vh, 2.5rem);
+}
+
+.about__position {
+  max-width: 44ch;
+  margin: 0;
+  color: rgb(245 248 255 / 92%);
+  font-size: clamp(1rem, 3.6vw, 1.125rem);
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.about__paragraph {
+  max-width: 46ch;
+  margin: 1.1em 0 0;
+  color: rgb(245 248 255 / 76%);
+  font-size: clamp(0.9375rem, 3.4vw, 1rem);
+  line-height: 1.62;
+  text-wrap: pretty;
+}
+
+/* Beliefs -------------------------------------------------------------------- */
+
+.about__beliefs {
+  display: grid;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.belief {
+  padding-top: 0.9rem;
+  border-top: 1px solid rgb(245 248 255 / 14%);
+  transition: border-color 250ms var(--ease-out-expo);
+}
+
+.belief__index {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--color-cantaloupe);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  line-height: 1;
+}
+
+.belief__title {
+  margin: 0;
+  color: var(--color-ivory);
+  font-family: var(--font-manrope), "Helvetica Neue", Arial, sans-serif;
+  font-size: clamp(1.0625rem, 3.8vw, 1.2rem);
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  line-height: 1.18;
+  transition:
+    transform 250ms var(--ease-out-expo),
+    color 250ms ease;
+}
+
+.belief__definition {
+  margin: 0.45rem 0 0;
+  color: rgb(245 248 255 / 76%);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  transition: color 250ms ease;
+}
+
+/* Colophon ------------------------------------------------------------------- */
+
+.about__colophon {
+  margin-top: clamp(2.75rem, 7vh, 4.5rem);
+  padding-top: clamp(1.5rem, 3vh, 2rem);
+}
+
+.about__colophon-rule {
+  display: block;
+  height: 1px;
+  background-color: rgb(245 248 255 / 16%);
+}
+
+.about__colophon-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.9rem 1rem;
+  margin-top: 1.25rem;
+}
+
+/* Vercy — interactive authentic character in a circular frame.
+   Three transparent busts are stacked and cross-faded by class. Only opacity
+   changes, so the frame never reflows. */
+.vercy {
+  position: relative;
+  display: block;
+  width: 3.5rem;
+  height: 3.5rem;
+  flex: none;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid rgb(245 248 255 / 16%);
+  border-radius: 50%;
+  background-color: rgb(255 255 255 / 3%);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    border-color 260ms var(--ease-out-expo),
+    background-color 260ms var(--ease-out-expo),
+    transform 260ms var(--ease-out-expo);
+}
+
+.vercy:hover,
+.vercy.is-happy {
+  border-color: rgb(245 248 255 / 30%);
+  background-color: rgb(86 141 255 / 10%);
+}
+
+.vercy:focus-visible {
+  outline: 2px solid rgb(245 248 255 / 85%);
+  outline-offset: 3px;
+}
+
+.vercy:active {
+  transform: scale(0.97);
+}
+
+/* The breath wrapper carries the idle animation; the images inside it only
+   cross-fade, so a hover during a breath never fights the transform. */
+.vercy__breath {
+  position: absolute;
+  inset: 0;
+  display: block;
+  will-change: transform;
+}
+
+.vercy__img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 240ms var(--ease-out-expo);
+  user-select: none;
+}
+
+/* Resting state. */
+.vercy__img--neutral {
+  opacity: 1;
+  object-position: center 34%;
+  transform: scale(1.14);
+}
+
+/* The reaction exports are wider action poses: they are pulled back slightly
+   so the raised arms stay readable inside the circle. Each state's head sits
+   at a different height in its frame, so object-position is tuned per state. */
+.vercy__img--happy {
+  object-position: center 34%;
+  transform: scale(1.22);
+}
+
+.vercy__img--surprised {
+  object-position: center 30%;
+  transform: scale(1.18);
+}
+
+/* Hover / keyboard focus. */
+.vercy.is-happy .vercy__img--neutral {
+  opacity: 0;
+}
+
+.vercy.is-happy .vercy__img--happy {
+  opacity: 1;
+}
+
+/* Click / tap. Surprised wins over Happy. */
+.vercy.is-surprised .vercy__img--neutral,
+.vercy.is-surprised .vercy__img--happy {
+  opacity: 0;
+}
+
+.vercy.is-surprised .vercy__img--surprised {
+  opacity: 1;
+  /* A tiny pop so the reaction reads as a startle, not a photo swap. */
+  animation: vercy-pop 620ms var(--ease-out-expo) both;
+}
+
+@keyframes vercy-pop {
+  0% {
+    transform: scale(1.18);
+  }
+  18% {
+    transform: scale(1.24);
+  }
+  100% {
+    transform: scale(1.18);
+  }
+}
+
+/* Two lines by design: the companion sentence, then the ship clause. */
+.about__companion {
+  max-width: 24ch;
+  margin: 0;
+  color: rgb(245 248 255 / 62%);
+  font-size: 0.875rem;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+/* Tablet --------------------------------------------------------------------- */
+
+@media (min-width: 640px) {
+  .about__statement {
+    font-size: clamp(3.25rem, 8vw, 4.5rem);
+  }
+
+  .belief__index {
+    display: inline-block;
+    margin: 0 0.75rem 0 0;
+  }
+
+  .belief__title {
+    display: inline;
+    font-size: clamp(1.125rem, 2.4vw, 1.35rem);
+  }
+
+  .about__companion {
+    max-width: 34ch;
+  }
+
+  .vercy {
+    width: 4rem;
+    height: 4rem;
+  }
+}
+
+/* Desktop: asymmetric statement column + offset belief column --------------- */
+
+@media (min-width: 1024px) {
+  .about__body {
+    grid-template-columns: minmax(0, 1.62fr) minmax(0, 0.8fr);
+    gap: clamp(3rem, 8vw, 9rem);
+    align-items: start;
+  }
+
+  .about__statement {
+    font-size: clamp(3.5rem, 6.6vw, 6.75rem);
+    letter-spacing: -0.03em;
+    line-height: 0.92;
+  }
+
+  .about__prose {
+    margin-top: clamp(1.5rem, 3vh, 2.25rem);
+  }
+
+  .about__beliefs {
+    /* The beliefs hang beside the prose, not the statement — the asymmetry. */
+    margin-top: clamp(2.25rem, 5vh, 3.25rem);
+    gap: 1.75rem;
+  }
+
+  .belief {
+    display: grid;
+    grid-template-columns: 2.5rem minmax(0, 1fr);
+    column-gap: 0.9rem;
+    padding-top: 1rem;
+  }
+
+  .belief__index {
+    display: block;
+    margin: 0.3rem 0 0;
+  }
+
+  .belief__title {
+    display: block;
+    font-size: clamp(1.25rem, 1.5vw, 1.4rem);
+  }
+
+  .belief__definition {
+    grid-column: 2;
+  }
+
+  .about__colophon-row {
+    flex-wrap: nowrap;
+    gap: 1.1rem;
+  }
+
+  .about__companion {
+    max-width: 42ch;
+  }
+
+  .vercy {
+    width: 5rem;
+    height: 5rem;
+  }
+}
+
+/* Intermediate desktop -------------------------------------------------------- */
+
+@media (min-width: 1181px) {
+  .about__beliefs {
+    margin-top: clamp(2.5rem, 5.5vh, 3.5rem);
+  }
+}
+
+/* Hover — fine pointers only --------------------------------------------------- */
+
+@media (hover: hover) and (pointer: fine) {
+  .belief:hover {
+    border-top-color: rgb(245 248 255 / 32%);
+  }
+
+  .belief:hover .belief__title {
+    transform: translateX(4px);
+  }
+
+  .belief:hover .belief__definition {
+    color: rgb(245 248 255 / 86%);
+  }
+}
+
+/* Reduced motion --------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-ready [data-amotion="eyebrow"],
+  .motion-ready [data-amotion="line"],
+  .motion-ready [data-amotion="prose"],
+  .motion-ready [data-amotion="belief"],
+  .motion-ready [data-amotion="colophon"] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .motion-ready [data-amotion="rule"],
+  .motion-ready [data-amotion="colophon-rule"] {
+    transform: none !important;
+  }
+
+  .belief,
+  .belief__title,
+  .belief__definition {
+    transition: none !important;
+  }
+
+  .belief:hover .belief__title {
+    transform: none !important;
+  }
+
+  /* Vercy is a static Neutral portrait under reduced motion: no breathing,
+     no hover, no surprise, no cross-fade, and the reaction images are never
+     downloaded because the motion hook bails before wiring them. */
+  .vercy {
+    cursor: default;
+  }
+
+  .vercy__breath {
+    animation: none !important;
+    transform: none !important;
+    will-change: auto;
+  }
+
+  .vercy__img {
+    transition: none !important;
+  }
+
+  .vercy__img--happy,
+  .vercy__img--surprised {
+    display: none !important;
+  }
+
+  .vercy:hover,
+  .vercy.is-happy,
+  .vercy.is-surprised {
+    border-color: rgb(245 248 255 / 16%);
+    background-color: rgb(255 255 255 / 3%);
+    transform: none;
+  }
+
+  .vercy.is-surprised .vercy__img--surprised {
+    animation: none !important;
+  }
+}

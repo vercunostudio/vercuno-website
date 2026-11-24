@@ -4,9 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { BrandMark } from "@/components/brand-mark";
 import { ArrowUpRight } from "@/components/icons";
 import {
-  helloMailto,
   primaryNav,
-  projectMailto,
   STUDIO_EMAIL,
 } from "@/lib/site";
 
@@ -78,7 +76,7 @@ export function SiteHeader() {
               </li>
             ))}
             <li>
-              <a className="nav-pill" href={helloMailto}>
+              <a className="nav-pill" href="#contact">
                 <span>Let&rsquo;s Talk</span>
                 <ArrowUpRight className="nav-pill__icon" />
               </a>
@@ -149,7 +147,7 @@ export function SiteHeader() {
           </nav>
 
           <div className="mobile-menu__foot">
-            <a className="button button--primary" href={projectMailto}>
+            <a className="button button--primary" href="#contact">
               <span>Start a Project</span>
               <ArrowUpRight className="button__icon" />
             </a>

@@ -4,7 +4,6 @@ import { useRef } from "react";
 import { ArrowUpRight } from "@/components/icons";
 import { useProcessMotion } from "@/lib/process-motion";
 import { processCta, processHeading, processStages } from "@/lib/process";
-import { projectMailto } from "@/lib/site";
 
 /**
  * Section 05 — Process (Concept C "The Operator's Index").
@@ -104,7 +103,7 @@ export function Process() {
             <span className="process__cta-accent">{processCta.label}</span>
           </p>
 
-          <a className="button button--primary process__cta-link" href={projectMailto}>
+          <a className="button button--primary process__cta-link" href="#contact">
             <span>Let&apos;s Talk</span>
             <ArrowUpRight className="button__icon" />
           </a>

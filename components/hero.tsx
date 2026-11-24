@@ -3,7 +3,6 @@
 import { MonumentalV, OrbitalLines } from "@/components/hero-geometry";
 import { ArrowDown, ArrowUpRight } from "@/components/icons";
 import { useHeroMotion } from "@/lib/hero-motion";
-import { projectMailto } from "@/lib/site";
 
 export function Hero() {
   const rootRef = useHeroMotion();
@@ -48,7 +47,7 @@ export function Hero() {
           </p>
 
           <div className="hero__actions" data-motion="actions">
-            <a className="button button--primary" data-motion="magnetic" href={projectMailto}>
+            <a className="button button--primary" data-motion="magnetic" href="#contact">
               <span>Start a Project</span>
               <ArrowUpRight className="button__icon" />
             </a>

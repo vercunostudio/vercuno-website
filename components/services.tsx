@@ -2,7 +2,6 @@
 
 import { useRef } from "react";
 import { ArrowUpRight } from "@/components/icons";
-import { projectMailto } from "@/lib/site";
 import { services, servicesCtaNote, servicesIndexId } from "@/lib/services";
 import { useServicesMotion } from "@/lib/services-motion";
 
@@ -146,7 +145,7 @@ export function Services() {
 
       <div className="services__foot" data-smotion="foot">
         <p className="services__foot-note">{servicesCtaNote}</p>
-        <a className="text-link services__foot-link" href={projectMailto}>
+        <a className="text-link services__foot-link" href="#contact">
           <span>Start a Project</span>
           <ArrowUpRight className="text-link__icon" />
         </a>

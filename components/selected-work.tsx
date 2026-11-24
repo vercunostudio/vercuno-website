@@ -2,7 +2,7 @@
 
 import { Fragment } from "react";
 import { ArrowUpRight } from "@/components/icons";
-import { projectMailto, selectedProjects } from "@/lib/site";
+import { selectedProjects } from "@/lib/site";
 import { useWorkMotion } from "@/lib/work-motion";
 
 /**
@@ -113,7 +113,7 @@ export function SelectedWork() {
 
       <div className="work__foot" data-wmotion="foot">
         <p className="work__foot-note">Founder Projects — designed and built by VERCUNO.</p>
-        <a className="text-link work__foot-link" href={projectMailto}>
+        <a className="text-link work__foot-link" href="#contact">
           <span>Start a Project</span>
           <ArrowUpRight className="text-link__icon" />
         </a>

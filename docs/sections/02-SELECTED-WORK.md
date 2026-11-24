@@ -29,11 +29,16 @@ URL: https://world-one-lilac.vercel.app
 Category: Blockchain Web Application
 URL: https://veto-opal.vercel.app
 
-03 — AI Content Studio
+03 — SOVRA
+Category: Independent Project / Zecathon Prototype
+URL: https://sovra-preview.vercel.app/demo
+Added 2026-11-24 — see §17.
+
+04 — AI Content Studio
 Category: AI Content Workflow
 URL: None verified. Typographic entry, not linked.
 
-All three are Founder Projects — built and shipped by the
+All are Founder Projects — built and shipped by the
 studio, not paid client work. The section must state this.
 
 Forbidden: metrics, testimonials, clients, awards, fake
@@ -431,3 +436,88 @@ Status: PENDING OWNER IMPLEMENTATION APPROVAL.
 ## Owner Approval - 2026-11-24
 
 Selected Work V1 implementation approved by owner.
+
+## 17. SOVRA entry (added 2026-11-24 — pending owner review)
+
+The ledger now carries four rows. SOVRA is 03; AI Content Studio moved
+to 04 and is byte-identical apart from its index numeral.
+
+Project data (verified against the public repository README and the
+reachable demo on 2026-11-24):
+
+- 03 — SOVRA
+- Category: Independent Project / Zecathon Prototype
+- Descriptor: "Humanitarian aid accountability prototype."
+- Tech (unchanged by the row layout): React, TypeScript, Zcash Testnet
+- Repository: https://github.com/VincenSanjaya/sovra
+- Demo / row link: https://sovra-preview.vercel.app/demo
+
+Scope honesty — the row links the public demo and states
+"Frontend-only · fictional data". The README's boundaries are kept: the
+hosted site is a frontend-only showcase with fictional data, the
+perspective switching is not authentication, the Zcash confirmations in
+the demo are simulated, and no payment processing or authenticated
+humanitarian platform is claimed. The section counter reads
+"4 Projects" (computed from the data array, not hard-coded).
+
+Changes, all additive to the approved V1 design:
+
+- lib/site.ts — SOVRA entry at 03 (with `note`), AI Content Studio
+  renumbered to 04; optional `note` field documented.
+- components/selected-work.tsx — count derived from the data array;
+  a `work__note` paragraph renders only when a project has a note.
+- app/globals.css — `.work__note` style; the row grid gains a `note`
+  area (mobile stack, desktop third text line). Metadata and arrow
+  spans now cover three rows on desktop so vertical centring is
+  unchanged.
+- public/assets/projects/sovra/ — authentic captures
+  (sovra-desktop-01, sovra-mobile-01 in AVIF + WebP).
+
+Imagery note: the desktop capture is the live SOVRA landing page at
+1440x900, taken with headless Chrome through the Playwright browser.
+Third-party thumbnail services render only the preloader (the site's
+intro overlays the page), so they were rejected rather than used.
+Mobile inline imagery reuses the 16/10 desktop capture, per V1 decision
+2 — the 390px mobile capture is stored but unused.
+
+Behaviour preserved: floating plate (hover, keyboard focus, crossfade,
+tilt, right-edge flip), entrance timeline, row stagger, underlines,
+responsive stacking, reduced motion (plate hidden, everything static),
+no-JS static render, focus rings and accessible names. No text is shown
+only in the plate; the note is real text in the row.
+
+Verified 2026-11-24 (dev server, port 3000): ESLint, tsc and next build
+pass. At 1440x900 the rows are 01 WORLD//ONE, 02 VETO, 03 SOVRA,
+04 AI Content Studio; the SOVRA plate shows the authentic capture on
+hover and on keyboard focus; focus ring 2px ivory; accessible name
+"SOVRA — Independent Project / Zecathon Prototype (opens in new tab)".
+No horizontal overflow at 1440, 768, 390 or 320px; plate is display:none
+below 1024px and under reduced motion, where all rows and rules render
+statically; no-JS render shows all four rows at opacity 1. Console clean
+after a full scroll pass.
+
+Open items for the owner:
+
+1. Row link target: the row points at /demo (the walkthrough) while the
+   capture shows the landing page. Alternatives: link the root URL, or
+   capture /demo instead.
+2. Tech stack (React, TypeScript, Zcash Testnet) is supplied but the
+   approved row layout has no tech slot; the category and note carry the
+   factual framing instead. Adding a tech column would change the
+   approved design.
+3. "4 Projects" replaces "3 Projects" — confirm the count wording.
+4. The section footer still says "Founder Projects"; SOVRA is framed as
+   an Independent Project / Zecathon Prototype (still the founder's own
+   work). Confirm that framing is acceptable as-is.
+
+## SOVRA Entry — Owner Approval
+
+Approved: 2026-11-24
+Status: APPROVED / LOCKED
+
+- SOVRA occupies project 03.
+- AI Content Studio occupies project 04.
+- Existing Interactive Ledger design is preserved.
+- Authentic SOVRA screenshot is approved.
+- Frontend-only and fictional-data disclosure remains.
+- Link opens the SOVRA landing page.

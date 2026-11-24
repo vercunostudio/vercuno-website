@@ -26,7 +26,7 @@ export function SelectedWork() {
           <span>Selected Work</span>
         </p>
         <p className="work__count" data-wmotion="count">
-          3 Projects
+          {selectedProjects.length} Projects
         </p>
       </div>
 
@@ -71,6 +71,7 @@ export function SelectedWork() {
                 <span aria-hidden="true" className="work__arrow">
                   <ArrowUpRight className="work__arrow-icon" />
                 </span>
+                {project.note ? <p className="work__note">{project.note}</p> : null}
                 {project.image ? (
                   <span className="work__media">
                     <span aria-hidden="true" className="work__mark" />

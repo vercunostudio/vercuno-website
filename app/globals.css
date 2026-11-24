@@ -1352,6 +1352,7 @@ button {
     "idx title"
     ". cat"
     ". desc"
+    ". note"
     ". media";
   column-gap: clamp(0.9rem, 3vw, 1.25rem);
   row-gap: 0.6rem;
@@ -1453,6 +1454,17 @@ a.work__row {
   grid-area: media;
   color: rgb(245 248 255 / 58%);
   font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  line-height: 1.5;
+}
+
+/* Factual scope note (e.g. "Frontend-only · fictional data"). */
+.work__note {
+  margin: 0;
+  grid-area: note;
+  color: rgb(245 248 255 / 58%);
+  font-size: 0.72rem;
   font-weight: 500;
   letter-spacing: 0.08em;
   line-height: 1.5;
@@ -1623,7 +1635,8 @@ a.work__row {
     grid-template-columns: clamp(2.75rem, 5vw, 5rem) minmax(0, 1fr) clamp(11rem, 18vw, 16rem) auto;
     grid-template-areas:
       "idx title cat arrow"
-      "idx desc desc arrow";
+      "idx desc desc arrow"
+      "idx note note arrow";
     column-gap: clamp(1.25rem, 2vw, 2rem);
     row-gap: 0.5rem;
     align-content: center;
@@ -1635,7 +1648,7 @@ a.work__row {
   }
 
   .work__category {
-    grid-row: 1 / span 2;
+    grid-row: 1 / span 3;
     align-self: center;
     justify-self: end;
     text-align: right;
@@ -1648,7 +1661,7 @@ a.work__row {
   .work__arrow {
     display: inline-flex;
     grid-area: arrow;
-    grid-row: 1 / span 2;
+    grid-row: 1 / span 3;
     align-self: center;
     justify-self: end;
     color: var(--color-electric);
@@ -1661,7 +1674,7 @@ a.work__row {
 
   .work__pending {
     grid-area: arrow;
-    grid-row: 1 / span 2;
+    grid-row: 1 / span 3;
     align-self: center;
     justify-self: end;
     text-align: right;

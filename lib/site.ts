@@ -42,6 +42,8 @@ export type SelectedProject = {
   descriptor: string;
   /** Verified live destination, or null when none exists (never fabricated). */
   url: string | null;
+  /** Short, factual scope note shown in the metadata column (optional). */
+  note?: string;
   /** Authentic capture from the live site, or null for the typographic entry. */
   image: ProjectImage | null;
 };
@@ -84,6 +86,21 @@ export const selectedProjects: SelectedProject[] = [
   },
   {
     index: "03",
+    title: "SOVRA",
+    category: "Independent Project / Zecathon Prototype",
+    descriptor: "Humanitarian aid accountability prototype.",
+    url: "https://sovra-preview.vercel.app/",
+    note: "Frontend-only · fictional data",
+    image: {
+      avif: `${PROJECT_ASSETS}/sovra/sovra-desktop-01.avif`,
+      webp: `${PROJECT_ASSETS}/sovra/sovra-desktop-01.webp`,
+      width: 1440,
+      height: 900,
+      alt: "SOVRA landing page — “A donation is not a delivery.” headline beside a sample delivery record comparing organisation, partner and beneficiary amounts.",
+    },
+  },
+  {
+    index: "04",
     title: "AI Content Studio",
     category: "AI Content Workflow",
     descriptor: "Content workflows, engineered.",

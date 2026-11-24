@@ -64,6 +64,8 @@ ClassAI kai-baik, subject to availability.
 Current scope:
 Selected Work implemented as V1 per the approved A+ specification;
 PENDING OWNER IMPLEMENTATION APPROVAL.
+Services implemented as V1 (Concept C+) per
+docs/sections/03-SERVICES.md; PENDING OWNER IMPLEMENTATION APPROVAL.
 
 ## Git
 
@@ -95,6 +97,10 @@ Present accurately as Founder Projects.
   inline slots use the desktop 16/10 captures while the portrait
   mobile captures stay unused; (c) secondary desktop captures stay
   unused in V1 (plate carries one image per project)
+- Services specification approval and its four open items
+  (docs/sections/03-SERVICES.md §14): repeated blue italic accent,
+  mobile jump index, framing of service 04, short vs full index
+  labels at narrow desktop widths
 
 ## Selected Work — Design Direction
 
@@ -123,6 +129,46 @@ public destination; renders as a typographic entry with a
 
 No invented metrics, testimonials, clients, or results.
 
+## Services — Design Direction
+
+Approved concept for specification: C+ "The Interactive Operating
+Manual" (owner selection from the Services design exploration;
+Concept C "The Operating Manual" enhanced with Concept A's
+reciprocal interaction).
+
+Direction: a manual for what the studio builds — orange eyebrow and
+factual count, oversized "What / We Build." masthead in the left
+editorial column (Instrument Serif Italic Electric Blue accent
+echoing the Hero), a sticky desktop service index, and four
+hairline-ruled indexed entries on the right: Cantaloupe index
+numerals, Manrope ExtraBold titles, Instrument Serif Italic
+definitions, Inter scope copy, middot capability lists.
+
+Reciprocity: the index and the entries highlight one another on
+hover and focus; an IntersectionObserver keeps the active index
+item in step with scroll via aria-current (a state toggle, not a
+scroll animation).
+
+Deliberately excluded: the cursor-following screenshot plate,
+scroll hijacking, pinning, cards, icon grids, pricing, timelines,
+SLAs, and testimonials.
+
+Services (from the PRD service list, evidenced by founder projects):
+01 Web Development (WORLD//ONE)
+02 Custom Software (VETO)
+03 AI & Workflow Automation (AI Content Studio)
+04 Technical Maintenance & Support (PRD service; no shipped
+evidence — framed as a capability, never as client work)
+
+Anchor: #services (live in primaryNav; resolves to the section).
+CTA: existing projectMailto Start a Project with
+section-specific supporting copy.
+
+Status: IMPLEMENTED as Section 03 V1 below Selected Work
+(components/services.tsx, lib/services.ts, lib/services-motion.ts).
+PENDING OWNER IMPLEMENTATION APPROVAL. Hero V2.2 and Selected Work
+V1 remain locked and unchanged.
+
 ## Change Control
 
 Document decisions before implementation.
@@ -141,3 +187,11 @@ without explicit owner review.
 ## Selected Work V1 Approval
 
 Selected Work V1 implementation approved by owner on 2026-11-24. Preserve its approved visual design and interactions.
+
+## Services V1 — Final Approval
+
+Approved: 2026-11-24
+Concept: C+ Interactive Operating Manual
+
+Section 03 is locked. Future sections must preserve
+its approved design and functionality.

@@ -14,9 +14,9 @@ export type NavItem = {
 };
 
 /**
- * In-page anchors. #work resolves to the Selected Work section; Services
- * and About stay reserved for the sections that ship next so no unfinished
- * pages are linked.
+ * In-page anchors. #work resolves to the Selected Work section and
+ * #services to the Services section; #about stays reserved for the section
+ * that ships next so no unfinished pages are linked.
  */
 export const primaryNav: NavItem[] = [
   { label: "Work", href: "#work" },

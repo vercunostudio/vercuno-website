@@ -14,12 +14,80 @@ export type NavItem = {
 };
 
 /**
- * Targets point at the homepage sections that ship next. They are kept as
- * in-page anchors during Hero-only development so no unfinished pages are
- * linked.
+ * In-page anchors. #work resolves to the Selected Work section; Services
+ * and About stay reserved for the sections that ship next so no unfinished
+ * pages are linked.
  */
 export const primaryNav: NavItem[] = [
   { label: "Work", href: "#work" },
   { label: "Services", href: "#services" },
   { label: "About", href: "#about" },
+];
+
+export type ProjectImage = {
+  /** AVIF source served by <picture> when the browser accepts it. */
+  avif: string;
+  /** WebP fallback, byte-exact from public/assets/projects/. */
+  webp: string;
+  width: number;
+  height: number;
+  alt: string;
+};
+
+export type SelectedProject = {
+  index: string;
+  title: string;
+  category: string;
+  /** Capability descriptor, not a result claim. */
+  descriptor: string;
+  /** Verified live destination, or null when none exists (never fabricated). */
+  url: string | null;
+  /** Authentic capture from the live site, or null for the typographic entry. */
+  image: ProjectImage | null;
+};
+
+const PROJECT_ASSETS = "/assets/projects";
+
+/**
+ * Founder Projects — built and shipped by the studio, not paid client work.
+ * Descriptions are verified against the live projects; no metrics,
+ * testimonials, clients, or results are claimed anywhere.
+ */
+export const selectedProjects: SelectedProject[] = [
+  {
+    index: "01",
+    title: "WORLD//ONE",
+    category: "Web Development",
+    descriptor: "A world built from curiosity.",
+    url: "https://world-one-lilac.vercel.app",
+    image: {
+      avif: `${PROJECT_ASSETS}/world-one/world-one-desktop-01.avif`,
+      webp: `${PROJECT_ASSETS}/world-one/world-one-desktop-01.webp`,
+      width: 1440,
+      height: 900,
+      alt: "WORLD//ONE homepage — “Curiosity built this world.” hero over a portrait framed by crystal artwork.",
+    },
+  },
+  {
+    index: "02",
+    title: "VETO",
+    category: "Blockchain Web Application",
+    descriptor: "Permissions, under control.",
+    url: "https://veto-opal.vercel.app",
+    image: {
+      avif: `${PROJECT_ASSETS}/veto/veto-desktop-01.avif`,
+      webp: `${PROJECT_ASSETS}/veto/veto-desktop-01.webp`,
+      width: 1440,
+      height: 900,
+      alt: "VETO landing page — “Your wallet. Your permissions.” headline between glowing abstract forms.",
+    },
+  },
+  {
+    index: "03",
+    title: "AI Content Studio",
+    category: "AI Content Workflow",
+    descriptor: "Content workflows, engineered.",
+    url: null,
+    image: null,
+  },
 ];

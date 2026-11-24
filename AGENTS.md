@@ -166,3 +166,22 @@ This version has breaking changes — APIs, conventions, and file structure may 
 This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
 
 <!-- END:nextjs-agent-rules -->
+
+## QA Artifact Policy
+
+The project owner performs final visual and
+interaction reviews directly through localhost.
+
+- Do not record or render QA videos.
+- Do not create animation demonstration videos.
+- Do not generate video files unless explicitly requested.
+- Screenshots are optional when useful for debugging.
+- Automated browser testing remains encouraged.
+- Continue running lint, typecheck, and build checks.
+- Test responsiveness and interactive behavior.
+- Provide the localhost preview URL.
+- Keep completion reports concise.
+- Do not spend additional tool calls producing
+  presentation artifacts for routine QA.
+
+This policy applies to all future sections.

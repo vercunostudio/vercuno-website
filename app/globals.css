@@ -1251,3 +1251,514 @@ button {
     transition: none !important;
   }
 }
+
+/* -------------------------------------------------------------------------- */
+/* Section 02 — Selected Work (Concept A+ "The Interactive Ledger")            */
+/* -------------------------------------------------------------------------- */
+
+.work {
+  position: relative;
+  padding-block: clamp(5.5rem, 13vh, 9rem) clamp(3.5rem, 8vh, 6rem);
+  padding-inline: var(--gutter);
+  overflow: hidden;
+  isolation: isolate;
+  background-color: var(--color-midnight);
+}
+
+/* Motion initial states apply only when JS is live and motion is allowed
+   (same pre-paint gate pattern as the Hero). GSAP owns the timelines. */
+.motion-ready [data-wmotion="eyebrow"],
+.motion-ready [data-wmotion="count"],
+.motion-ready [data-wmotion="heading-inner"],
+.motion-ready [data-wmotion="row"],
+.motion-ready [data-wmotion="foot"] {
+  opacity: 0;
+}
+
+.motion-ready [data-wmotion="rule"] {
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.work__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+}
+
+.work__count {
+  margin: 0;
+  color: rgb(245 248 255 / 58%);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.work__heading {
+  margin: clamp(1.75rem, 4vh, 2.75rem) 0 0;
+  color: var(--color-ivory);
+  font-family: var(--font-manrope), "Helvetica Neue", Arial, sans-serif;
+  font-size: clamp(3rem, 14vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 0.94;
+}
+
+.work__heading-line {
+  display: block;
+}
+
+.work__heading-inner {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.work__accent {
+  padding-right: 0.04em;
+  color: var(--color-electric);
+  font-family: var(--font-instrument), "Times New Roman", serif;
+  font-size: 1.06em;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 0.8;
+}
+
+/* Ledger --------------------------------------------------------------------- */
+
+.work__ledger {
+  margin-top: clamp(2.5rem, 6vh, 4.5rem);
+}
+
+.work__rule {
+  display: block;
+  height: 1px;
+  background-color: rgb(245 248 255 / 14%);
+}
+
+.work__rule--strong {
+  background-color: rgb(245 248 255 / 22%);
+}
+
+.work__row {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas:
+    "idx title"
+    ". cat"
+    ". desc"
+    ". media";
+  column-gap: clamp(0.9rem, 3vw, 1.25rem);
+  row-gap: 0.6rem;
+  align-content: start;
+  padding-block: clamp(1.5rem, 4.5vh, 2.25rem);
+  color: inherit;
+}
+
+a.work__row {
+  cursor: pointer;
+}
+
+/* Faint Electric Blue wash behind the hovered/focused row. */
+.work__row::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  opacity: 0;
+  background-color: rgb(2 151 222 / 4%);
+  transition: opacity 250ms ease;
+}
+
+.work__index {
+  display: inline-flex;
+  grid-area: idx;
+  align-items: baseline;
+  gap: 0.3rem;
+  color: var(--color-cantaloupe);
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.08em;
+  line-height: 1.6;
+}
+
+.work__index-sep {
+  color: rgb(245 248 255 / 38%);
+}
+
+.work__title {
+  margin: 0;
+  grid-area: title;
+  color: var(--color-ivory);
+  font-family: var(--font-manrope), "Helvetica Neue", Arial, sans-serif;
+  font-size: clamp(2.1rem, 8.4vw, 3.25rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.02;
+}
+
+.work__title-text {
+  position: relative;
+  display: inline-block;
+}
+
+/* Underline draw, same motion language as the nav underline. */
+.work__title-text::after {
+  position: absolute;
+  right: 0;
+  bottom: -0.08em;
+  left: 0;
+  height: 1px;
+  transform: scaleX(0);
+  transform-origin: right center;
+  background-color: var(--color-ivory);
+  content: "";
+  transition: transform 400ms var(--ease-out-expo);
+}
+
+.work__category {
+  margin: 0;
+  grid-area: cat;
+  color: rgb(245 248 255 / 78%);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.work__descriptor {
+  margin: 0;
+  grid-area: desc;
+  color: rgb(245 248 255 / 66%);
+  font-family: var(--font-instrument), "Times New Roman", serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  letter-spacing: 0.005em;
+  line-height: 1.4;
+}
+
+.work__arrow {
+  display: none;
+}
+
+.work__pending {
+  margin: 0;
+  grid-area: media;
+  color: rgb(245 248 255 / 58%);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  line-height: 1.5;
+}
+
+/* Inline imagery replaces the floating plate on touch/narrow viewports. */
+.work__media {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .work__media {
+    position: relative;
+    display: block;
+    grid-area: media;
+    overflow: hidden;
+    margin-top: 0.35rem;
+    border: 1px solid rgb(245 248 255 / 22%);
+    border-radius: 2px;
+  }
+
+  .work__media picture {
+    display: block;
+  }
+
+  .work__media img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+  }
+
+  .work__mark {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 1.75rem;
+    height: 3px;
+    background-color: var(--color-cantaloupe);
+  }
+}
+
+/* Floating preview plate (desktop, fine pointer) -------------------------------- */
+
+.work-plate {
+  position: fixed;
+  z-index: 40;
+  top: 0;
+  left: 0;
+  width: min(26rem, 26vw);
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border: 1px solid rgb(245 248 255 / 22%);
+  border-radius: 2px;
+  background-color: var(--color-surface);
+  box-shadow: 0 24px 70px rgb(2 7 10 / 55%);
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  will-change: transform;
+}
+
+.work-plate__media {
+  position: absolute;
+  inset: 0;
+  display: block;
+  opacity: 0;
+}
+
+.work-plate__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.work-plate__mark {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 1.75rem;
+  height: 3px;
+  background-color: var(--color-cantaloupe);
+}
+
+@media (max-width: 1023px), (hover: none), (pointer: coarse) {
+  .work-plate {
+    display: none;
+  }
+}
+
+/* Footer strip ------------------------------------------------------------------ */
+
+.work__foot {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.1rem;
+  margin-top: clamp(2.5rem, 6vh, 4rem);
+  padding-block: 1.1rem calc(0.85rem + env(safe-area-inset-bottom));
+  border-top: 1px solid rgb(245 248 255 / 22%);
+}
+
+.work__foot-note {
+  margin: 0;
+  color: rgb(245 248 255 / 78%);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.work__foot .text-link {
+  align-self: flex-start;
+  font-size: 1rem;
+}
+
+/* Tablet ------------------------------------------------------------------------- */
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .work__heading {
+    font-size: clamp(4.5rem, 14vw, 6.5rem);
+  }
+
+  .work__title {
+    font-size: clamp(2.6rem, 8.4vw, 4.25rem);
+  }
+
+  .work__descriptor {
+    font-size: 1.15rem;
+  }
+}
+
+/* Desktop ------------------------------------------------------------------------ */
+
+@media (min-width: 1024px) {
+  .work__head {
+    flex-wrap: nowrap;
+  }
+
+  .work__count {
+    font-size: 0.78125rem;
+  }
+
+  .work__heading {
+    font-size: clamp(4.5rem, 10.5vw, 9.5rem);
+  }
+
+  .work__heading-line {
+    display: inline-block;
+  }
+
+  .work__heading-line + .work__heading-line {
+    margin-left: 0.22em;
+  }
+
+  .work__ledger {
+    margin-top: clamp(3rem, 7vh, 5rem);
+  }
+
+  .work__row {
+    grid-template-columns: clamp(2.75rem, 5vw, 5rem) minmax(0, 1fr) clamp(11rem, 18vw, 16rem) auto;
+    grid-template-areas:
+      "idx title cat arrow"
+      "idx desc desc arrow";
+    column-gap: clamp(1.25rem, 2vw, 2rem);
+    row-gap: 0.5rem;
+    align-content: center;
+    padding-block: clamp(2rem, 4.5vh, 3rem);
+  }
+
+  .work__title {
+    font-size: clamp(3rem, 5.2vw, 5.5rem);
+  }
+
+  .work__category {
+    grid-row: 1 / span 2;
+    align-self: center;
+    justify-self: end;
+    text-align: right;
+  }
+
+  .work__descriptor {
+    font-size: 1.2rem;
+  }
+
+  .work__arrow {
+    display: inline-flex;
+    grid-area: arrow;
+    grid-row: 1 / span 2;
+    align-self: center;
+    justify-self: end;
+    color: var(--color-electric);
+  }
+
+  .work__arrow-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .work__pending {
+    grid-area: arrow;
+    grid-row: 1 / span 2;
+    align-self: center;
+    justify-self: end;
+    text-align: right;
+  }
+
+  .work__foot {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+
+  .work__foot .text-link {
+    align-self: center;
+    font-size: 1.125rem;
+  }
+}
+
+/* Hover / focus interactions — fine pointers only, never touch ------------------- */
+
+@media (hover: hover) and (pointer: fine) {
+  a.work__row:hover::before,
+  a.work__row:focus-visible::before {
+    opacity: 1;
+  }
+
+  .work__title-text {
+    transition: transform 450ms var(--ease-out-expo);
+  }
+
+  a.work__row:hover .work__title-text,
+  a.work__row:focus-visible .work__title-text {
+    transform: translateX(8px);
+  }
+
+  a.work__row:hover .work__title-text::after,
+  a.work__row:focus-visible .work__title-text::after {
+    transform: scaleX(1);
+    transform-origin: left center;
+  }
+
+  .work__index-num {
+    transition: color 250ms ease;
+  }
+
+  a.work__row:hover .work__index-num,
+  a.work__row:focus-visible .work__index-num {
+    color: #ff8b69;
+  }
+
+  .work__arrow-icon {
+    transition:
+      transform 350ms var(--ease-out-expo),
+      color 250ms ease;
+  }
+
+  a.work__row:hover .work__arrow-icon,
+  a.work__row:focus-visible .work__arrow-icon {
+    transform: translate(3px, -3px);
+    color: var(--color-electric-bright);
+  }
+}
+
+/* Reduced motion: render everything immediately and instantly; hover keeps
+   only non-motion feedback (color changes). The plate never appears. */
+@media (prefers-reduced-motion: reduce) {
+  .motion-ready [data-wmotion="eyebrow"],
+  .motion-ready [data-wmotion="count"],
+  .motion-ready [data-wmotion="heading-inner"],
+  .motion-ready [data-wmotion="row"],
+  .motion-ready [data-wmotion="foot"] {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+
+  .motion-ready [data-wmotion="rule"] {
+    transform: scaleX(1) !important;
+  }
+
+  .work-plate {
+    display: none !important;
+  }
+
+  .work__row,
+  .work__title-text,
+  .work__title-text::after,
+  .work__arrow-icon,
+  .work__index-num,
+  .work__rule {
+    transition: none !important;
+  }
+
+  a.work__row:hover .work__title-text,
+  a.work__row:focus-visible .work__title-text,
+  a.work__row:hover .work__arrow-icon,
+  a.work__row:focus-visible .work__arrow-icon {
+    transform: none !important;
+  }
+}

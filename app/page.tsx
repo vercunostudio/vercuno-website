@@ -1,5 +1,6 @@
 import { Hero } from "@/components/hero";
 import { Preloader } from "@/components/preloader";
+import { SelectedWork } from "@/components/selected-work";
 import { SiteHeader } from "@/components/site-header";
 
 export default function Home() {
@@ -9,6 +10,7 @@ export default function Home() {
       <SiteHeader />
       <main id="main-content">
         <Hero />
+        <SelectedWork />
       </main>
     </>
   );

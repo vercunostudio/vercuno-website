@@ -52,17 +52,10 @@ export function Hero() {
               <span>Start a Project</span>
               <ArrowUpRight className="button__icon" />
             </a>
-            <a
-              aria-describedby="work-pending"
-              className="text-link"
-              href="#work"
-            >
+            <a className="text-link" href="#work">
               <span>Explore Work</span>
               <ArrowUpRight className="text-link__icon" />
             </a>
-            <span className="sr-only" id="work-pending">
-              Selected work is coming soon.
-            </span>
           </div>
         </div>
       </div>
